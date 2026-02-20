@@ -1,0 +1,65 @@
+{
+  "missions": [
+    {
+      "id": 1,
+      "title": "Nettoyage plage Sidi Bou Said",
+      "description": "Collecte de déchets sur la plage",
+      "date": "2026-03-01",
+      "location": "Tunis",
+      "category": "Cleanup",
+      "spotsLeft": 7
+    },
+    {
+      "id": 2,
+      "title": "Plantation arbres Ariana",
+      "description": "Planter des arbres en ville",
+      "date": "2026-03-05",
+      "location": "Ariana",
+      "category": "Planting",
+      "spotsLeft": 13
+    },
+    {
+      "id": 3,
+      "title": "Atelier zéro déchet",
+      "description": "Apprendre à réduire ses déchets",
+      "date": "2026-03-10",
+      "location": "La Marsa",
+      "category": "Workshop",
+      "spotsLeft": 20
+    },
+    {
+      "id": 4,
+      "title": "Nettoyage parc Belvedere",
+      "description": "Collecte de déchets dans le parc",
+      "date": "2026-03-12",
+      "location": "Tunis",
+      "category": "Cleanup",
+      "spotsLeft": 7
+    },
+    {
+      "id": 5,
+      "title": "Reboisement forêt",
+      "description": "Planter des arbres en forêt",
+      "date": "2026-03-15",
+      "location": "Bizerte",
+      "category": "Planting",
+      "spotsLeft": 12
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Isra",
+      "email": "isra@gmail.com",
+      "password": "123456",
+      "missions": []
+    },
+    {
+      "id": 2,
+      "name": "Sarra",
+      "email": "sarra@gmail.com",
+      "password": "123456",
+      "missions": []
+    }
+  ]
+}
