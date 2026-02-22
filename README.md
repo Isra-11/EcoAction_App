@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# EcoAction - Plateforme de Bénévolat Environnemental
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 1. Contexte du projet
 
-## Get started
+**EcoAction** est une application mobile React Native (Expo) qui permet aux citoyens de découvrir, s'inscrire et gérer des missions de bénévolat locales. Les missions incluent le nettoyage de plages, la plantation d'arbres ou des ateliers zéro déchet. L'application offre une expérience fluide même avec un réseau instable grâce à la gestion intelligente du cache via **TanStack Query**.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 2. Fonctionnalités (MVP)
 
-2. Start the app
+1. **Authentification**  
+   - Inscription et connexion d’un utilisateur (simulation).  
+   - Gestion de l’état de l’utilisateur via un **AuthProvider** global.
 
-   ```bash
-   npx expo start
-   ```
+2. **Exploration des missions**  
+   - Liste des missions avec **filtres par catégorie** et recherche textuelle.  
+   - Détails d’une mission avec description, date, lieu et places restantes.
 
-In the output, you'll find options to open the app in a
+3. **Gestion des participations**  
+   - S’inscrire ou annuler sa participation à une mission.  
+   - Vue “Mes Missions” pour consulter l’agenda personnel.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+4. **Profil utilisateur**  
+   - Affichage de statistiques simples (nombre de missions, actions réalisées).
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## 3. Architecture du projet
 
-When you're ready, run:
+- **Framework** : React Native + Expo  
+- **Navigation** : Expo Router (Tabs + Stack)  
+- **Gestion état & réseau** : TanStack Query (`useQuery` et `useMutation`)  
+- **Context global** : `AuthProvider` pour gérer l’utilisateur connecté  
+- **API** : JSON-Server (`db.json`) simulant backend REST  
+
+**Structure principale :**
+
+
+app/
+├─ (tabs)/
+│ ├─ index.tsx # Accueil
+│ ├─ missions.tsx # Liste et filtre des missions
+│ ├─ my-missions.tsx # Missions de l’utilisateur
+│ ├─ profil.tsx # Profil utilisateur
+│ └─ mission/[id].tsx # Détails d’une mission
+├─ login.tsx
+├─ register.tsx
+└─ _layout.tsx # QueryClientProvider + AuthProvider
+components/
+├─ MissionCard.tsx
+└─ StatCard.tsx
+context/
+└─ auth.tsx
+services/
+├─ api.ts
+└─ missions.service.ts
+types/
+├─ mission.ts
+└─ user.ts
+db.json # Mock backend
+
+
+---
+
+## 4. Installation et lancement
 
 ```bash
-npm run reset-project
-```
+# Cloner le dépôt
+git clone <url_du_depot>
+cd EcoAction
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Installer les dépendances
+npm install
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Lancer le projet Expo
+npx expo start
